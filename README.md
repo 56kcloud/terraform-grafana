@@ -16,9 +16,6 @@ environment variables to set, and so on. To actually run an ECS Task, you define
 
 1. Deploy the requested number of Tasks across an ECS cluster based on the `desired_number_of_tasks` input variable.
 1. Restart tasks if they fail.
-1. Route traffic across the tasks with an optional Elastic Load Balancer (ELB). To use an ELB, set `is_associated_with_elb`
-   to `true` and pass in the ELB details using the `elb_name`, `elb_container_name`, and `elb_container_port`
-   input variables.
 
 ## What is an ALB?
 
