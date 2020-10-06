@@ -26,7 +26,7 @@ variable "ecs_cluster" {
 # Docker image configuration
 
 variable "image" {
-  description = "The Docker image to run (e.g. gruntwork/frontend-service)"
+  description = "The Docker image to run"
   type        = string
 }
 
