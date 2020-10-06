@@ -84,20 +84,6 @@ variable "public_subnet_ids" {
   type        = list
 }
 
-# Route 53 / DNS Info
-
-variable "create_route53_entry" {
-  description = "Set to true to create a Route 53 entry for this service"
-  type        = bool
-  default     = false
-}
-
-variable "domain_name" {
-  description = "The domain name for the DNS A record to add for this service (e.g. service.foo.com). Only used if var.create_route53_entry is true."
-  type        = string
-  default     = null
-}
-
 variable "ssl_cert_arn" {
   description = "The ARN of the SSL certificate to use on the ALB"
   type        = string

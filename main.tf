@@ -293,23 +293,3 @@ resource "aws_lb_listener" "https" {
     target_group_arn = aws_lb_target_group.target_group.arn
   }
 }
-
-# ---------------------------------------------------------------------------------------------------------------------
-# CREATE A DNS RECORD USING ROUTE 53
-# ---------------------------------------------------------------------------------------------------------------------
-
-# The ECS Service's endpoint will point to the ELB.
-resource "aws_route53_record" "dns_record" {
-  count = var.create_route53_entry ? 1 : 0
-
-  zone_id = element(data.terraform_remote_state.route53_public.*.outputs.primary_domain_hosted_zone_id, 0)
-  name = var.domain_name
-  type = "A"
-
-  alias {
-    name = aws_lb.ecs_alb.dns_name
-    zone_id = aws_lb.ecs_alb.zone_id
-    evaluate_target_health = true
-  }
-}
-
