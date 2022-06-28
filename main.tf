@@ -217,7 +217,7 @@ resource "aws_lb_target_group" "target_group" {
 
 # Define a S3 bucket for the ALB logs
 resource "aws_s3_bucket" "alb_logs_s3_bucket" {
-  bucket = "${var.service_name}-alb-logs"
+  bucket_prefix = "${var.service_name}-alb-logs"
   acl    = "log-delivery-write"
 
   versioning {
